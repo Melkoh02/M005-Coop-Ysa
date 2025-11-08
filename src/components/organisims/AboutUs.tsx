@@ -1,5 +1,5 @@
-import { Box, Grid, Stack, Typography } from '@mui/material';
 import * as React from 'react';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
@@ -20,31 +20,30 @@ function Feature({
   text: string;
 }) {
   return (
-    <Grid item xs={12} sm={4}>
-      <Stack direction="row" spacing={2} alignItems="flex-start">
-        <Box
-          sx={{
-            width: 44,
-            height: 44,
-            borderRadius: '10px',
-            border: '1px solid ' + CARD_BORDER,
-            display: 'grid',
-            placeItems: 'center',
-            color: GREEN,
-          }}>
-          {icon}
-        </Box>
+    <Stack direction="row" spacing={2} alignItems="flex-start">
+      <Box
+        sx={{
+          width: 44,
+          height: 44,
+          borderRadius: '10px',
+          border: '1px solid ' + CARD_BORDER,
+          display: 'grid',
+          placeItems: 'center',
+          color: GREEN,
+          flexShrink: 0,
+        }}>
+        {icon}
+      </Box>
 
-        <Stack spacing={0.5}>
-          <Typography variant="subtitle1" fontWeight={800}>
-            {title}
-          </Typography>
-          <Typography variant="body2" sx={{ color: TEXT_MUTED }}>
-            {text}
-          </Typography>
-        </Stack>
+      <Stack spacing={0.5}>
+        <Typography variant="subtitle1" fontWeight={800}>
+          {title}
+        </Typography>
+        <Typography variant="body2" sx={{ color: TEXT_MUTED }}>
+          {text}
+        </Typography>
       </Stack>
-    </Grid>
+    </Stack>
   );
 }
 
@@ -56,12 +55,12 @@ const AboutUs = () => {
       </Typography>
 
       <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
-        {/* Left (md+): image — mirrors hero but on the left */}
-        <Grid item xs={12} md={4} order={{ xs: 1, md: 1 }}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Box
             sx={{
-              width: { xs: 300, md: 280 },
-              height: { xs: 200, md: 220 },
+              width: { xs: '100%', md: '100%' },
+              maxWidth: 320,
+              height: { xs: 220, md: 240 },
               borderRadius: 2,
               overflow: 'hidden',
               boxShadow: SOFT_SHADOW,
@@ -81,8 +80,7 @@ const AboutUs = () => {
           </Box>
         </Grid>
 
-        {/* Right (md+): text + 3 features in one row */}
-        <Grid item xs={12} md={8} order={{ xs: 2, md: 2 }}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Typography
             variant="body1"
             sx={{ color: TEXT_MUTED, mb: 4, maxWidth: 640 }}>
@@ -92,21 +90,21 @@ const AboutUs = () => {
           </Typography>
 
           <Grid container spacing={3}>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Feature
                 icon={<Groups2OutlinedIcon fontSize="large" />}
                 title="Solidaridad"
                 text="Acciones concretas que fortalecen a la comunidad."
               />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Feature
                 icon={<HomeOutlinedIcon fontSize="large" />}
                 title="Crédito"
                 text="Productos responsables y tasas justas."
               />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Feature
                 icon={<SchoolOutlinedIcon fontSize="large" />}
                 title="Educación"

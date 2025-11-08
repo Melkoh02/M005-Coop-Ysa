@@ -16,7 +16,7 @@ const Hero = () => {
         borderBottom: '1px solid ' + CARD_BORDER,
       }}>
       <Grid container spacing={{ xs: 4, md: 6 }} alignItems="flex-start">
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Box
             sx={{
               width: '100%',
@@ -38,7 +38,7 @@ const Hero = () => {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Stack spacing={{ xs: 3, md: 4 }}>
             <Typography
               component="h1"

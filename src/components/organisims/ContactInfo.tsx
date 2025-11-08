@@ -45,19 +45,19 @@ const ContactInfo = () => {
           border: '1px solid ' + CARD_BORDER,
           boxShadow: '0 1px 2px rgba(16,24,40,0.03)',
         }}>
-        <Grid item xs={12} md>
+        <Grid size={12}>
           <ContactItem
             icon={<RoomOutlinedIcon />}
             text="Dirección de la cooperativa"
           />
         </Grid>
-        <Grid item xs={12} md>
+        <Grid size={12}>
           <ContactItem
             icon={<AlternateEmailOutlinedIcon />}
             text="correo@cooperativa.py"
           />
         </Grid>
-        <Grid item xs={12} md="auto">
+        <Grid size={12}>
           <Button
             startIcon={<LocalPhoneOutlinedIcon />}
             variant="contained"
