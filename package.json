@@ -1,7 +1,7 @@
 {
- "name": "m003",
+ "name": "m005",
  "private": true,
- "version": "0.0.0",
+ "version": "1.0.0",
  "type": "module",
  "scripts": {
   "dev": "vite",
@@ -39,7 +39,7 @@
   "postcss": "^8.5.6",
   "prettier": "^3.6.2",
   "tailwindcss": "^4.1.11",
-  "typescript": "5.0.4",
+  "typescript": "^5.6",
   "typescript-eslint": "^8.35.1",
   "vite": "^7.1.9"
  },
