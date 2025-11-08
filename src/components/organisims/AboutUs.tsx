@@ -84,9 +84,10 @@ const AboutUs = () => {
           <Typography
             variant="body1"
             sx={{ color: TEXT_MUTED, mb: 4, maxWidth: 640 }}>
-            Con más de XX años de historia, nuestra cooperativa se dedica a
-            brindar servicios de ahorro y crédito, educación financiera y
-            programas de apoyo social para fortalecer a nuestros socios.
+            Nacida del espíritu solidario de exalumnos del Colegio Ysaty,
+            nuestra cooperativa impulsa el desarrollo económico y social de su
+            comunidad y de todos aquellos que comparten los valores de
+            colaboración y crecimiento mutuo.
           </Typography>
 
           <Grid container spacing={3}>
@@ -100,7 +101,7 @@ const AboutUs = () => {
             <Grid size={{ xs: 12, md: 4 }}>
               <Feature
                 icon={<HomeOutlinedIcon fontSize="large" />}
-                title="Crédito"
+                title="Produccion"
                 text="Productos responsables y tasas justas."
               />
             </Grid>

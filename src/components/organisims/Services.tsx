@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Box, Card, CardContent, Grid, Stack, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
+import SportsSoccerOutlinedIcon from '@mui/icons-material/SportsSoccerOutlined';
+
 import {
   CARD_BORDER,
   GREEN,
@@ -85,9 +86,9 @@ const Services = () => {
           text="Financiamiento responsable para tu crecimiento."
         />
         <ServiceCard
-          icon={<SchoolOutlinedIcon />}
-          title="Educación"
-          text="Programas y charlas de educación financiera."
+          icon={<SportsSoccerOutlinedIcon />}
+          title="Deportes"
+          text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. "
         />
       </Grid>
     </Box>

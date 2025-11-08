@@ -87,7 +87,7 @@ const ContactInfo = () => {
           sx={{ justifyContent: 'center', display: 'flex' }}>
           <ContactItem
             icon={<RoomOutlinedIcon />}
-            text="Avda. La Victoria c/ Avda. Fernando de la Mora, Barrio San Pablo, Asuncion - Paraguay"
+            text="Avda. La Victoria c/ Avda. Fernando de la Mora, Barrio San Pablo, Asunción - Paraguay"
             href="https://maps.app.goo.gl/gLJJrTQiA2WprZ9F9"
           />
         </Grid>
