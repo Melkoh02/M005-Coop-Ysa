@@ -2,13 +2,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { observer } from 'mobx-react-lite';
 import AppRoutes from '../routes/routes';
-import { useStore } from '../lib/hooks/useStore';
+import { lightTheme } from '../themes/light.ts';
 
 const App = observer(function App() {
-  const { themeStore } = useStore();
-
   return (
-    <ThemeProvider theme={themeStore.theme}>
+    <ThemeProvider theme={lightTheme}>
       <CssBaseline />
       <BrowserRouter>
         <AppRoutes />

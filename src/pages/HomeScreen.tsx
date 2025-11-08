@@ -19,6 +19,7 @@ import {
   GREEN_DARK,
   SOFT_SHADOW,
 } from '../lib/constants/home.ts';
+import { pub } from '../lib/helpers.ts';
 
 export default function HomeScreen() {
   return (
@@ -39,7 +40,7 @@ export default function HomeScreen() {
           <Toolbar disableGutters sx={{ minHeight: 72 }}>
             <Box
               component="img"
-              src="/assets/logo.jpeg"
+              src={pub('assets/logo.png')}
               alt="Cooperativa Ysateños"
               sx={{
                 height: 40,
