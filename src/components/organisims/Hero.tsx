@@ -48,7 +48,7 @@ const Hero = () => {
                 letterSpacing: '-0.02em',
                 fontSize: { xs: 34, md: 44 },
               }}>
-              Bienvenidos a
+              Cooperativa
               <br />
               Ysateños
             </Typography>

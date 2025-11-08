@@ -4,11 +4,12 @@ import {
   Button,
   Grid,
   IconButton,
+  Link,
   Stack,
   Typography,
 } from '@mui/material';
-import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import {
   CARD_BORDER,
@@ -17,7 +18,32 @@ import {
   TEXT_MUTED,
 } from '../../lib/constants/home.ts';
 
-function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
+function ContactItem({
+  icon,
+  text,
+  href,
+}: {
+  icon: React.ReactNode;
+  text: string;
+  href?: string;
+}) {
+  const clickable = Boolean(href);
+  const content = (
+    <Typography
+      variant="body2"
+      component={clickable ? Link : 'span'}
+      href={href}
+      target={clickable ? '_blank' : undefined}
+      rel={clickable ? 'noopener noreferrer' : undefined}
+      sx={{
+        color: TEXT_MUTED,
+        textDecoration: clickable ? 'none' : undefined,
+        '&:hover': clickable ? { textDecoration: 'underline' } : undefined,
+      }}>
+      {text}
+    </Typography>
+  );
+
   return (
     <Stack direction="row" spacing={1.5} alignItems="center">
       <Box sx={{ color: GREEN }}>
@@ -25,9 +51,7 @@ function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
           {icon}
         </IconButton>
       </Box>
-      <Typography variant="body2" sx={{ color: TEXT_MUTED }}>
-        {text}
-      </Typography>
+      {content}
     </Stack>
   );
 }
@@ -51,24 +75,20 @@ const ContactInfo = () => {
         }}>
         <Grid
           size={{ xs: 12, md: 4 }}
-          sx={{
-            justifyContent: 'center',
-            display: 'flex',
-          }}>
+          sx={{ justifyContent: 'center', display: 'flex' }}>
           <ContactItem
             icon={<AlternateEmailOutlinedIcon />}
             text="coopysatenhos.captaciones@gmail.com"
+            href="mailto:coopysatenhos.captaciones@gmail.com"
           />
         </Grid>
         <Grid
           size={{ xs: 12, md: 4 }}
-          sx={{
-            justifyContent: 'center',
-            display: 'flex',
-          }}>
+          sx={{ justifyContent: 'center', display: 'flex' }}>
           <ContactItem
             icon={<RoomOutlinedIcon />}
             text="Avda. La Victoria c/ Avda. Fernando de la Mora, Barrio San Pablo, Asuncion - Paraguay"
+            href="https://maps.app.goo.gl/gLJJrTQiA2WprZ9F9"
           />
         </Grid>
         <Grid
@@ -78,8 +98,12 @@ const ContactInfo = () => {
             display: 'flex',
           }}>
           <Button
-            startIcon={<LocalPhoneOutlinedIcon />}
+            startIcon={<WhatsAppIcon />}
             variant="contained"
+            component={Link}
+            href="https://wa.me/595981114671"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               textTransform: 'none',
               borderRadius: 2,
@@ -101,7 +125,7 @@ const ContactInfo = () => {
           color: TEXT_MUTED,
           justifyContent: 'center',
         }}>
-        © 2025 Cooperativa. Términos · Política de privacidad
+        ©Copyright. Todos los derechos reservados.
       </Typography>
     </Box>
   );

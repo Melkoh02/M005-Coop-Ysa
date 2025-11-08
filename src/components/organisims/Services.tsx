@@ -32,7 +32,7 @@ function ServiceCard({
           '&:hover': { boxShadow: SOFT_SHADOW, transform: 'translateY(-2px)' },
         }}>
         <CardContent sx={{ p: 3 }}>
-          <Stack spacing={2} alignItems="flex-start">
+          <Stack spacing={2} alignItems="center">
             <Box
               sx={{
                 width: 52,
