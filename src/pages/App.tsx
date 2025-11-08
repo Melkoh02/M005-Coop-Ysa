@@ -8,7 +8,7 @@ const App = observer(function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <CssBaseline />
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
     </ThemeProvider>
