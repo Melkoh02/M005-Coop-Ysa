@@ -98,20 +98,26 @@ export default function HomeScreen() {
               py: { xs: 6, md: 8 },
               borderBottom: '1px solid ' + CARD_BORDER,
             }}>
-            <Grid container spacing={6} alignItems="center">
+            <Grid container spacing={{ xs: 4, md: 6 }} alignItems="flex-start">
+              {/* Left: text */}
               <Grid item xs={12} md={6}>
-                <Stack spacing={3}>
+                <Stack spacing={{ xs: 3, md: 4 }}>
                   <Typography
-                    variant="h3"
-                    fontWeight={800}
-                    lineHeight={1.15}
-                    sx={{ letterSpacing: -0.2 }}>
+                    component="h1"
+                    sx={{
+                      fontWeight: 800,
+                      lineHeight: 1.1,
+                      letterSpacing: '-0.02em',
+                      fontSize: { xs: 34, md: 44 },
+                    }}>
                     Bienvenidos a
                     <br />
-                    Ysateños
+                    Cooperativa
                   </Typography>
 
-                  <Typography variant="body1" sx={{ color: TEXT_MUTED }}>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: TEXT_MUTED, maxWidth: 420 }}>
                     Nuestra misión es impulsar el bienestar de nuestros socios a
                     través de soluciones financieras accesibles y el desarrollo
                     de la comunidad.
@@ -120,31 +126,43 @@ export default function HomeScreen() {
                   <Button
                     size="large"
                     variant="contained"
+                    disableElevation
                     sx={{
                       width: 'fit-content',
                       textTransform: 'none',
                       bgcolor: GREEN,
                       '&:hover': { bgcolor: GREEN_DARK },
-                      borderRadius: 2,
+                      borderRadius: 1.5,
                       px: 3,
+                      py: 1.25,
                     }}>
                     Más información
                   </Button>
                 </Stack>
               </Grid>
 
+              {/* Right: image */}
               <Grid item xs={12} md={6}>
                 <Box
-                  component="img"
-                  alt="Personas de la cooperativa"
-                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=1200&auto=format&fit=crop"
                   sx={{
                     width: '100%',
-                    height: { xs: 220, md: 340 },
-                    objectFit: 'cover',
+                    maxWidth: { md: 520 },
+                    ml: { md: 'auto' },
                     borderRadius: 2,
-                  }}
-                />
+                    overflow: 'hidden',
+                  }}>
+                  <Box
+                    component="img"
+                    alt="Personas de la cooperativa"
+                    src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=1200&auto=format&fit=crop"
+                    sx={{
+                      display: 'block',
+                      width: '100%',
+                      height: { xs: 220, md: 340 },
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
               </Grid>
             </Grid>
           </Box>
@@ -157,45 +175,66 @@ export default function HomeScreen() {
               Sobre nosotros
             </Typography>
 
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={4}>
+            <Grid container spacing={4} alignItems="flex-start">
+              {/* Left: square image */}
+              <Grid item xs={12} md="auto">
                 <Box
-                  component="img"
-                  alt="Reunión de equipo"
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=900&auto=format&fit=crop"
                   sx={{
-                    width: '100%',
-                    height: 220,
-                    objectFit: 'cover',
+                    width: { xs: 260, md: 260 }, // fixed square like the mock
+                    height: { xs: 200, md: 200 },
                     borderRadius: 2,
+                    overflow: 'hidden',
                     boxShadow: SOFT_SHADOW,
-                  }}
-                />
+                    mx: { xs: 'auto', md: 0 }, // centered on mobile
+                  }}>
+                  <Box
+                    component="img"
+                    alt="Reunión de equipo"
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=900&auto=format&fit=crop"
+                    sx={{
+                      display: 'block',
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
               </Grid>
 
-              <Grid item xs={12} md={8}>
-                <Typography variant="body1" sx={{ color: TEXT_MUTED, mb: 3 }}>
+              {/* Right: text + features */}
+              <Grid item xs={12} md>
+                <Typography
+                  variant="body1"
+                  sx={{ color: TEXT_MUTED, mb: 3, maxWidth: 640 }}>
                   Con más de XX años de historia, nuestra cooperativa se dedica
                   a brindar servicios de ahorro y crédito, educación financiera
                   y programas de apoyo social para fortalecer a nuestros socios.
                 </Typography>
 
                 <Grid container spacing={3}>
-                  <Feature
-                    icon={<Groups2OutlinedIcon fontSize="large" />}
-                    title="Solidaridad"
-                    text="Acciones concretas que fortalecen a la comunidad."
-                  />
-                  <Feature
-                    icon={<HomeOutlinedIcon fontSize="large" />}
-                    title="Crédito"
-                    text="Productos responsables y tasas justas."
-                  />
-                  <Feature
-                    icon={<SchoolOutlinedIcon fontSize="large" />}
-                    title="Educación"
-                    text="Talleres y contenidos para mejorar la salud financiera."
-                  />
+                  <Grid item xs={12} md={4}>
+                    <Feature
+                      icon={<Groups2OutlinedIcon fontSize="large" />}
+                      title="Solidaridad"
+                      text="Acciones concretas que fortalecen a la comunidad."
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={4}>
+                    <Feature
+                      icon={<HomeOutlinedIcon fontSize="large" />}
+                      title="Crédito"
+                      text="Productos responsables y tasas justas."
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={4}>
+                    <Feature
+                      icon={<SchoolOutlinedIcon fontSize="large" />}
+                      title="Educación"
+                      text="Talleres y contenidos para mejorar la salud financiera."
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
