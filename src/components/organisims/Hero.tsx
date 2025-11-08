@@ -27,8 +27,8 @@ const Hero = () => {
             }}>
             <Box
               component="img"
-              alt="Personas de la cooperativa"
-              src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=1200&auto=format&fit=crop"
+              src="https://media.istockphoto.com/id/1424987910/photo/coworkers-with-stacked-hands-at-the-office.jpg?s=612x612&w=0&k=20&c=VRcFD0Im7myc70YBar1YLBSPL-CtYzenVyd4XRhloQ8="
+              // src={'/assets/logo.jpeg'}
               sx={{
                 display: 'block',
                 width: '100%',

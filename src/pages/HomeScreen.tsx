@@ -37,9 +37,24 @@ export default function HomeScreen() {
         }}>
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ minHeight: 72 }}>
+            <Box
+              component="img"
+              src="/assets/logo.jpeg"
+              alt="Cooperativa Ysateños"
+              sx={{
+                height: 40,
+                width: 40,
+                objectFit: 'cover',
+              }}
+            />
             <Typography
               variant="h6"
-              sx={{ fontWeight: 800, color: GREEN, letterSpacing: 0.2 }}>
+              sx={{
+                paddingLeft: 2,
+                fontWeight: 800,
+                color: GREEN,
+                letterSpacing: 0.2,
+              }}>
               Ysateños
             </Typography>
 
