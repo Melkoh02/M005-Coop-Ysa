@@ -42,7 +42,7 @@ const ContactInfo = () => {
       }}>
       <Grid
         container
-        spacing={2}
+        spacing={6}
         sx={{
           padding: 3,
           borderRadius: 2,
@@ -57,7 +57,7 @@ const ContactInfo = () => {
           }}>
           <ContactItem
             icon={<AlternateEmailOutlinedIcon />}
-            text="correo@cooperativa.py"
+            text="coopysatenhos.captaciones@gmail.com"
           />
         </Grid>
         <Grid
@@ -68,7 +68,7 @@ const ContactInfo = () => {
           }}>
           <ContactItem
             icon={<RoomOutlinedIcon />}
-            text="Dirección de la cooperativa"
+            text="Avda. La Victoria c/ Avda. Fernando de la Mora, Barrio San Pablo, Asuncion - Paraguay"
           />
         </Grid>
         <Grid
@@ -88,7 +88,7 @@ const ContactInfo = () => {
               '&:hover': { bgcolor: GREEN_DARK },
               width: { xs: '100%', md: 'auto' },
             }}>
-            +595 000 000 000
+            +595 981 114 671
           </Button>
         </Grid>
       </Grid>
