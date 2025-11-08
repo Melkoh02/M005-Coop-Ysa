@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  AppBar,
   Box,
   Button,
   Card,
@@ -14,295 +13,338 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
-import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
+import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 
-export default function Home() {
+// palette from the mock
+const GREEN = '#2c6b5a';
+const GREEN_DARK = '#1f5144';
+const TEXT_MUTED = 'rgba(0,0,0,0.6)';
+const CARD_BORDER = 'rgba(0,0,0,0.08)';
+const SOFT_SHADOW =
+  '0 1px 2px rgba(16,24,40,0.04), 0 8px 24px rgba(16,24,40,0.08)';
+
+export default function HomeScreen() {
   return (
-    <Box sx={{ bgcolor: 'background.default', color: 'text.primary' }}>
-      <Navbar />
-      <Box
-        component="section"
+    <Box sx={{ bgcolor: '#f6f7f8', minHeight: '100vh' }}>
+      {/* Top bar */}
+      <Paper
+        elevation={0}
+        square
         sx={{
-          py: { xs: 6, md: 10 },
+          position: 'sticky',
+          top: 0,
+          zIndex: 10,
+          borderBottom: '1px solid ' + CARD_BORDER,
+          backdropFilter: 'saturate(180%) blur(8px)',
+          backgroundColor: 'rgba(255,255,255,0.9)',
         }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <Stack spacing={3}>
-                <Typography variant="h3" fontWeight={800} lineHeight={1.2}>
-                  Bienvenidos a{' '}
-                  <span style={{ whiteSpace: 'nowrap' }}>Cooperativa</span>
-                </Typography>
-                <Typography variant="body1">
-                  Nuestra misión es impulsar el bienestar de nuestros socios
-                  mediante soluciones financieras accesibles y el desarrollo de
-                  la comunidad.
-                </Typography>
-                <Stack direction="row" spacing={2}>
-                  <Button variant="contained" size="large" color="success">
+          <Toolbar disableGutters sx={{ minHeight: 72 }}>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 800, color: GREEN, letterSpacing: 0.2 }}>
+              Ysateños
+            </Typography>
+
+            <Box sx={{ flexGrow: 1 }} />
+
+            <Stack
+              direction="row"
+              spacing={3}
+              sx={{ display: { xs: 'none', sm: 'flex' } }}>
+              <HeaderLink href="#">Inicio</HeaderLink>
+              <HeaderLink href="#nosotros">Nosotros</HeaderLink>
+              <HeaderLink href="#servicios">Servicios</HeaderLink>
+            </Stack>
+
+            <Button
+              href="#contacto"
+              size="small"
+              variant="contained"
+              sx={{
+                ml: { xs: 1, sm: 3 },
+                px: 2.5,
+                borderRadius: 2,
+                textTransform: 'none',
+                bgcolor: GREEN,
+                '&:hover': { bgcolor: GREEN_DARK },
+              }}>
+              Contáctanos
+            </Button>
+          </Toolbar>
+        </Container>
+      </Paper>
+
+      {/* Page container with “card” look */}
+      <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+        <Paper
+          elevation={0}
+          sx={{
+            borderRadius: 3,
+            boxShadow: SOFT_SHADOW,
+            overflow: 'hidden',
+            bgcolor: '#fff',
+          }}>
+          {/* HERO */}
+          <Box
+            sx={{
+              px: { xs: 3, md: 6 },
+              py: { xs: 6, md: 8 },
+              borderBottom: '1px solid ' + CARD_BORDER,
+            }}>
+            <Grid container spacing={6} alignItems="center">
+              <Grid item xs={12} md={6}>
+                <Stack spacing={3}>
+                  <Typography
+                    variant="h3"
+                    fontWeight={800}
+                    lineHeight={1.15}
+                    sx={{ letterSpacing: -0.2 }}>
+                    Bienvenidos a
+                    <br />
+                    Ysateños
+                  </Typography>
+
+                  <Typography variant="body1" sx={{ color: TEXT_MUTED }}>
+                    Nuestra misión es impulsar el bienestar de nuestros socios a
+                    través de soluciones financieras accesibles y el desarrollo
+                    de la comunidad.
+                  </Typography>
+
+                  <Button
+                    size="large"
+                    variant="contained"
+                    sx={{
+                      width: 'fit-content',
+                      textTransform: 'none',
+                      bgcolor: GREEN,
+                      '&:hover': { bgcolor: GREEN_DARK },
+                      borderRadius: 2,
+                      px: 3,
+                    }}>
                     Más información
                   </Button>
                 </Stack>
-              </Stack>
-            </Grid>
+              </Grid>
 
-            <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ overflow: 'hidden', borderRadius: 3 }}>
+              <Grid item xs={12} md={6}>
                 <Box
                   component="img"
-                  alt="Comunidad cooperativa"
-                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop"
+                  alt="Personas de la cooperativa"
+                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=1200&auto=format&fit=crop"
                   sx={{
-                    display: 'block',
                     width: '100%',
-                    height: { xs: 260, md: 360 },
+                    height: { xs: 220, md: 340 },
                     objectFit: 'cover',
+                    borderRadius: 2,
                   }}
                 />
-              </Paper>
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
-      </Box>
+          </Box>
 
-      <Box
-        component="section"
-        sx={{
-          py: { xs: 6, md: 10 },
-          borderTop: t => `1px solid ${t.palette.divider}`,
-        }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={8}>
-              <Stack spacing={3}>
-                <Typography variant="h5" fontWeight={800}>
-                  Sobre nosotros
-                </Typography>
-                <Typography variant="body1">
+          {/* SOBRE NOSOTROS */}
+          <Box
+            id="nosotros"
+            sx={{ px: { xs: 3, md: 6 }, py: { xs: 6, md: 8 } }}>
+            <Typography variant="h5" fontWeight={800} sx={{ mb: 4 }}>
+              Sobre nosotros
+            </Typography>
+
+            <Grid container spacing={4} alignItems="center">
+              <Grid item xs={12} md={4}>
+                <Box
+                  component="img"
+                  alt="Reunión de equipo"
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=900&auto=format&fit=crop"
+                  sx={{
+                    width: '100%',
+                    height: 220,
+                    objectFit: 'cover',
+                    borderRadius: 2,
+                    boxShadow: SOFT_SHADOW,
+                  }}
+                />
+              </Grid>
+
+              <Grid item xs={12} md={8}>
+                <Typography variant="body1" sx={{ color: TEXT_MUTED, mb: 3 }}>
                   Con más de XX años de historia, nuestra cooperativa se dedica
                   a brindar servicios de ahorro y crédito, educación financiera
                   y programas de apoyo social para fortalecer a nuestros socios.
                 </Typography>
 
                 <Grid container spacing={3}>
-                  <Value
-                    icon={<SavingsOutlinedIcon />}
+                  <Feature
+                    icon={<Groups2OutlinedIcon fontSize="large" />}
                     title="Solidaridad"
-                    color="success">
-                    Acciones concretas que fortalecen a la comunidad.
-                  </Value>
-                  <Value
-                    icon={<AccountBalanceOutlinedIcon />}
+                    text="Acciones concretas que fortalecen a la comunidad."
+                  />
+                  <Feature
+                    icon={<HomeOutlinedIcon fontSize="large" />}
                     title="Crédito"
-                    color="success">
-                    Productos responsables y tasas justas para proyectos reales.
-                  </Value>
-                  <Value
-                    icon={<SchoolOutlinedIcon />}
+                    text="Productos responsables y tasas justas."
+                  />
+                  <Feature
+                    icon={<SchoolOutlinedIcon fontSize="large" />}
                     title="Educación"
-                    color="success">
-                    Talleres y contenidos para mejorar la salud financiera.
-                  </Value>
+                    text="Talleres y contenidos para mejorar la salud financiera."
+                  />
                 </Grid>
-              </Stack>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={4}>
-              <Paper elevation={0} sx={{ overflow: 'hidden', borderRadius: 3 }}>
-                <Box
-                  component="img"
-                  alt="Reunión de trabajo"
-                  src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop"
-                  sx={{
-                    display: 'block',
-                    width: '100%',
-                    height: { xs: 220, md: 320 },
-                    objectFit: 'cover',
-                  }}
+          </Box>
+
+          {/* SERVICIOS */}
+          <Box
+            id="servicios"
+            sx={{
+              px: { xs: 3, md: 6 },
+              py: { xs: 6, md: 8 },
+              borderTop: '1px solid ' + CARD_BORDER,
+              borderBottom: '1px solid ' + CARD_BORDER,
+              bgcolor: '#fff',
+            }}>
+            <Typography variant="h5" fontWeight={800} sx={{ mb: 4 }}>
+              Nuestros servicios
+            </Typography>
+
+            <Grid container spacing={3}>
+              <ServiceCard
+                icon={<SavingsOutlinedIcon />}
+                title="Ahorro"
+                text="Opciones flexibles y seguras para tus metas."
+              />
+              <ServiceCard
+                icon={<HomeOutlinedIcon />}
+                title="Crédito"
+                text="Financiamiento responsable para tu crecimiento."
+              />
+              <ServiceCard
+                icon={<SchoolOutlinedIcon />}
+                title="Educación"
+                text="Programas y charlas de educación financiera."
+              />
+            </Grid>
+          </Box>
+
+          {/* CONTACTO */}
+          <Box
+            id="contacto"
+            sx={{ px: { xs: 3, md: 6 }, py: { xs: 5, md: 6 } }}>
+            <Grid
+              container
+              spacing={2}
+              alignItems="center"
+              sx={{
+                p: { xs: 2, md: 3 },
+                borderRadius: 2,
+                border: '1px solid ' + CARD_BORDER,
+                boxShadow: '0 1px 2px rgba(16,24,40,0.03)',
+              }}>
+              <Grid item xs={12} md>
+                <ContactItem
+                  icon={<RoomOutlinedIcon />}
+                  text="Dirección de la cooperativa"
                 />
-              </Paper>
+              </Grid>
+              <Grid item xs={12} md>
+                <ContactItem
+                  icon={<AlternateEmailOutlinedIcon />}
+                  text="correo@cooperativa.py"
+                />
+              </Grid>
+              <Grid item xs={12} md="auto">
+                <Button
+                  startIcon={<LocalPhoneOutlinedIcon />}
+                  variant="contained"
+                  sx={{
+                    textTransform: 'none',
+                    borderRadius: 2,
+                    px: 3,
+                    bgcolor: GREEN,
+                    '&:hover': { bgcolor: GREEN_DARK },
+                    width: { xs: '100%', md: 'auto' },
+                  }}>
+                  +595 000 000 000
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
-      </Box>
 
-      <Box
-        component="section"
-        sx={{
-          py: { xs: 6, md: 10 },
-          borderTop: t => `1px solid ${t.palette.divider}`,
-        }}>
-        <Container maxWidth="lg">
-          <Typography variant="h5" fontWeight={800} sx={{ mb: 4 }}>
-            Nuestros servicios
-          </Typography>
-
-          <Grid container spacing={3}>
-            <ServiceCard
-              icon={<SavingsOutlinedIcon fontSize="large" color="success" />}
-              title="Ahorro"
-              text="Opciones flexibles y seguras para tus metas."
-            />
-            <ServiceCard
-              icon={
-                <AccountBalanceOutlinedIcon fontSize="large" color="success" />
-              }
-              title="Crédito"
-              text="Financiamiento responsable para tu crecimiento."
-            />
-            <ServiceCard
-              icon={<SchoolOutlinedIcon fontSize="large" color="success" />}
-              title="Educación"
-              text="Programas y charlas de educación financiera."
-            />
-          </Grid>
-        </Container>
-      </Box>
-
-      <Box
-        component="section"
-        sx={{
-          py: { xs: 6, md: 10 },
-          borderTop: t => `1px solid ${t.palette.divider}`,
-        }}>
-        <Container maxWidth="lg">
-          <Typography variant="h5" fontWeight={800} sx={{ mb: 4 }}>
-            Contáctanos
-          </Typography>
-
-          <Stack
-            direction={{ xs: 'column', md: 'row' }}
-            spacing={3}
-            alignItems="flex-start">
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <PlaceOutlinedIcon />
-              <Typography variant="body1">
-                Dirección de la cooperativa
-              </Typography>
-            </Stack>
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <EmailOutlinedIcon />
-              <Typography variant="body1">contacto@cooperativa.py</Typography>
-            </Stack>
-            <Button
-              variant="contained"
-              color="success"
-              startIcon={<PhoneEnabledOutlinedIcon />}>
-              +595 000 000 000
-            </Button>
-          </Stack>
-        </Container>
-      </Box>
-
-      <Box component="footer" sx={{ py: 3 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={3} alignItems="center">
-            <Grid item xs={12}>
-              <Stack
-                direction={{ xs: 'column', md: 'row' }}
-                spacing={3}
-                alignItems={{ xs: 'flex-start', md: 'center' }}
-                justifyContent="space-between">
-                <Typography variant="subtitle2">
-                  © {new Date().getFullYear()} Cooperativa Ysateños
-                </Typography>
-                <Stack direction="row" spacing={3}>
-                  <MLink href="#" underline="hover" color="inherit">
-                    Política de privacidad
-                  </MLink>
-                  <MLink href="#" underline="hover" color="inherit">
-                    Términos
-                  </MLink>
-                  <MLink href="#" underline="hover" color="inherit">
-                    Redes sociales
-                  </MLink>
-                </Stack>
-              </Stack>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+            <Typography
+              variant="caption"
+              sx={{ display: 'block', mt: 3, color: TEXT_MUTED }}>
+              © 2025 Cooperativa. Términos · Política de privacidad
+            </Typography>
+          </Box>
+        </Paper>
+      </Container>
     </Box>
   );
 }
 
-function Navbar() {
+/* ---------- helpers ---------- */
+
+function HeaderLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
-    <AppBar
-      position="sticky"
-      color="inherit"
-      elevation={0}
-      sx={{ borderBottom: t => `1px solid ${t.palette.divider}` }}>
-      <Toolbar sx={{ minHeight: 72 }}>
-        <Container maxWidth="lg" sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="h6" fontWeight={800} sx={{ flexGrow: 1 }}>
-            Cooperativa
-          </Typography>
-
-          <Stack
-            direction="row"
-            spacing={3}
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              alignItems: 'center',
-              mr: 2,
-            }}>
-            <MLink href="#" underline="none" color="inherit">
-              Inicio
-            </MLink>
-            <MLink href="#" underline="none" color="inherit">
-              Nosotros
-            </MLink>
-          </Stack>
-
-          <Button
-            variant="contained"
-            color="success"
-            sx={{
-              display: { xs: 'none', md: 'inline-flex' },
-              borderRadius: 1,
-            }}>
-            Contáctanos
-          </Button>
-
-          <IconButton
-            sx={{ display: { xs: 'inline-flex', md: 'none' }, ml: 1 }}>
-            <MenuIcon />
-          </IconButton>
-        </Container>
-      </Toolbar>
-    </AppBar>
+    <MLink
+      href={href}
+      underline="none"
+      sx={{
+        color: 'inherit',
+        fontSize: 14,
+        '&:hover': { color: GREEN },
+      }}>
+      {children}
+    </MLink>
   );
 }
 
-function Value({
+function Feature({
   icon,
   title,
-  children,
-  color,
+  text,
 }: {
   icon: React.ReactNode;
   title: string;
-  children: React.ReactNode;
-  color?: 'primary' | 'success' | 'inherit';
+  text: string;
 }) {
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} sm={4}>
       <Stack direction="row" spacing={2} alignItems="flex-start">
-        <Box sx={{ mt: 0.3 }} color={color || 'inherit'}>
+        <Box
+          sx={{
+            width: 44,
+            height: 44,
+            borderRadius: '10px',
+            border: '1px solid ' + CARD_BORDER,
+            display: 'grid',
+            placeItems: 'center',
+            color: GREEN,
+          }}>
           {icon}
         </Box>
-        <Box>
-          <Typography fontWeight={700}>{title}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {children}
+
+        <Stack spacing={0.5}>
+          <Typography variant="subtitle1" fontWeight={800}>
+            {title}
           </Typography>
-        </Box>
+          <Typography variant="body2" sx={{ color: TEXT_MUTED }}>
+            {text}
+          </Typography>
+        </Stack>
       </Stack>
     </Grid>
   );
@@ -323,22 +365,50 @@ function ServiceCard({
         variant="outlined"
         sx={{
           height: '100%',
-          borderRadius: 3,
-          border: 'none',
-          boxShadow: t => t.shadows[1],
+          borderColor: CARD_BORDER,
+          borderRadius: 2.5,
+          boxShadow: 'none',
+          transition: 'box-shadow .2s ease, transform .2s ease',
+          '&:hover': { boxShadow: SOFT_SHADOW, transform: 'translateY(-2px)' },
         }}>
-        <CardContent>
+        <CardContent sx={{ p: 3 }}>
           <Stack spacing={2} alignItems="flex-start">
-            <Box>{icon}</Box>
+            <Box
+              sx={{
+                width: 52,
+                height: 52,
+                borderRadius: '12px',
+                border: '1px solid ' + CARD_BORDER,
+                display: 'grid',
+                placeItems: 'center',
+                color: GREEN,
+              }}>
+              {icon}
+            </Box>
             <Typography variant="h6" fontWeight={800}>
               {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{ color: TEXT_MUTED }}>
               {text}
             </Typography>
           </Stack>
         </CardContent>
       </Card>
     </Grid>
+  );
+}
+
+function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <Stack direction="row" spacing={1.5} alignItems="center">
+      <Box sx={{ color: GREEN }}>
+        <IconButton size="small" disableRipple sx={{ color: GREEN }}>
+          {icon}
+        </IconButton>
+      </Box>
+      <Typography variant="body2" sx={{ color: TEXT_MUTED }}>
+        {text}
+      </Typography>
+    </Stack>
   );
 }
