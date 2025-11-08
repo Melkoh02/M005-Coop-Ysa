@@ -6,7 +6,7 @@ import {
   IconButton,
   Stack,
   Typography,
-} from '@mui/material'; // palette from the mock
+} from '@mui/material';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
@@ -34,30 +34,49 @@ function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 
 const ContactInfo = () => {
   return (
-    <Box id="contacto" sx={{ px: { xs: 3, md: 6 }, py: { xs: 5, md: 6 } }}>
+    <Box
+      id="contacto"
+      sx={{
+        px: { xs: 3, md: 6 },
+        py: { xs: 5, md: 6 },
+      }}>
       <Grid
         container
         spacing={2}
-        alignItems="center"
         sx={{
-          p: { xs: 2, md: 3 },
+          padding: 3,
           borderRadius: 2,
           border: '1px solid ' + CARD_BORDER,
           boxShadow: '0 1px 2px rgba(16,24,40,0.03)',
         }}>
-        <Grid size={12}>
-          <ContactItem
-            icon={<RoomOutlinedIcon />}
-            text="Dirección de la cooperativa"
-          />
-        </Grid>
-        <Grid size={12}>
+        <Grid
+          size={{ xs: 12, md: 4 }}
+          sx={{
+            justifyContent: 'center',
+            display: 'flex',
+          }}>
           <ContactItem
             icon={<AlternateEmailOutlinedIcon />}
             text="correo@cooperativa.py"
           />
         </Grid>
-        <Grid size={12}>
+        <Grid
+          size={{ xs: 12, md: 4 }}
+          sx={{
+            justifyContent: 'center',
+            display: 'flex',
+          }}>
+          <ContactItem
+            icon={<RoomOutlinedIcon />}
+            text="Dirección de la cooperativa"
+          />
+        </Grid>
+        <Grid
+          size={{ xs: 12, md: 4 }}
+          sx={{
+            justifyContent: 'center',
+            display: 'flex',
+          }}>
           <Button
             startIcon={<LocalPhoneOutlinedIcon />}
             variant="contained"
@@ -76,7 +95,12 @@ const ContactInfo = () => {
 
       <Typography
         variant="caption"
-        sx={{ display: 'block', mt: 3, color: TEXT_MUTED }}>
+        sx={{
+          display: 'flex',
+          mt: 3,
+          color: TEXT_MUTED,
+          justifyContent: 'center',
+        }}>
         © 2025 Cooperativa. Términos · Política de privacidad
       </Typography>
     </Box>
